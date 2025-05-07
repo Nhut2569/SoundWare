@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave - Trang Cá Nhân</title>
+    <link rel="stylesheet" href="../css/CaNhan.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sound<span>Wave</span></div>
+          <nav>
+            <ul>
+              <li><a href="TrangChu.htm">Trang chủ</a></li>
+              <li><a href="SanPhamS.htm">Sản phẩm</a></li>
+              <li><a href="#about">Về chúng tôi</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+              <li>
+                <a href="GioHang.htm">Giỏ hàng</a>
+              </li>
+              <li>
+                <a href="CaNhan.htm" class="active">Cá nhân</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="profile-section">
+      <div class="profile-container">
+        <div class="profile-header">
+          <img
+            src="/api/placeholder/120/120"
+            alt="Avatar người dùng"
+            class="profile-avatar"
+          />
+          <div class="profile-info">
+            <h1 id="user-full-name">Chưa đăng nhập</h1>
+            <p id="user-email">Vui lòng đăng nhập để xem thông tin</p>
+            <p id="user-joined-date">Thành viên từ: --/--/----</p>
+            <button class="edit-profile-btn" onclick="showTab('info')">
+              Chỉnh sửa hồ sơ
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-tabs">
+          <div class="profile-tab active" onclick="showTab('orders')">
+            Đơn hàng của tôi
+          </div>
+          <div class="profile-tab" onclick="showTab('wishlist')">
+            Sản phẩm yêu thích
+          </div>
+          <div class="profile-tab" onclick="showTab('info')">
+            Thông tin cá nhân
+          </div>
+          <div class="profile-tab" onclick="showTab('addresses')">
+            Địa chỉ giao hàng
+          </div>
+        </div>
+
+        <div id="orders" class="tab-content active">
+          <div id="orders-container">
+            <!-- Đơn hàng sẽ được thêm vào từ JavaScript -->
+            <div class="order-card">
+              <div class="order-header">
+                <div>
+                  <h3>Đơn hàng #SWO12345</h3>
+                  <p>Ngày đặt: 20/04/2025</p>
+                </div>
+                <div class="order-status">Đã giao hàng</div>
+              </div>
+              <div class="order-items">
+                <div class="order-item">
+                  <img
+                    src="/api/placeholder/60/60"
+                    alt="Loa Bluetooth XSound Pro"
+                  />
+                  <div class="order-item-details">
+                    <h4>Loa Bluetooth XSound Pro</h4>
+                    <p>Số lượng: 1 | 2.990.000₫</p>
+                  </div>
+                </div>
+                <div class="order-item">
+                  <img src="/api/placeholder/60/60" alt="Loa Party Bass Boom" />
+                  <div class="order-item-details">
+                    <h4>Loa Party Bass Boom</h4>
+                    <p>Số lượng: 1 | 3.990.000₫</p>
+                  </div>
+                </div>
+              </div>
+              <div class="order-total">Tổng cộng: 6.980.000₫</div>
+            </div>
+          </div>
+
+          <div
+            id="no-orders"
+            style="display: none; text-align: center; padding: 30px"
+          >
+            <p>Bạn chưa có đơn hàng nào.</p>
+            <a
+              href="SanPhamS.htm"
+              class="btn"
+              style="display: inline-block; margin-top: 15px"
+              >Mua sắm ngay</a
+            >
+          </div>
+        </div>
+
+        <div id="wishlist" class="tab-content">
+          <div class="wishlist-grid" id="wishlist-container">
+            <!-- Sản phẩm yêu thích sẽ được thêm vào từ JavaScript -->
+            <div class="wishlist-item">
+              <img
+                src="/api/placeholder/250/180"
+                alt="Loa Bookshelf AudioPro"
+              />
+              <div class="wishlist-item-info">
+                <h3>Loa Bookshelf AudioPro</h3>
+                <p class="price">7.990.000₫</p>
+                <div class="wishlist-actions">
+                  <button class="wishlist-btn add-cart-btn">
+                    Thêm vào giỏ hàng
+                  </button>
+                  <button
+                    class="wishlist-btn remove-btn"
+                    onclick="removeFromWishlist(this)"
+                  >
+                    Xóa
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="no-wishlist"
+            style="display: none; text-align: center; padding: 30px"
+          >
+            <p>Bạn chưa có sản phẩm yêu thích nào.</p>
+            <a
+              href="SanPhamS.htm"
+              class="btn"
+              style="display: inline-block; margin-top: 15px"
+              >Khám phá sản phẩm</a
+            >
+          </div>
+        </div>
+
+        <div id="info" class="tab-content">
+          <div class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Họ</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Nhập họ của bạn"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Tên</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Nhập tên của bạn"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Nhập email của bạn"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Nhập số điện thoại"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="birthdate">Ngày sinh</label>
+                <input type="date" id="birthdate" name="birthdate" />
+              </div>
+              <div class="form-group">
+                <label for="gender">Giới tính</label>
+                <select id="gender" name="gender">
+                  <option value="">Chọn giới tính</option>
+                  <option value="male">Nam</option>
+                  <option value="female">Nữ</option>
+                  <option value="other">Khác</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="currentPassword">Mật khẩu hiện tại</label>
+                <input
+                  type="password"
+                  id="currentPassword"
+                  name="currentPassword"
+                  placeholder="Nhập mật khẩu hiện tại"
+                />
+              </div>
+              <div class="form-group">
+                <label for="newPassword">Mật khẩu mới</label>
+                <input
+                  type="password"
+                  id="newPassword"
+                  name="newPassword"
+                  placeholder="Nhập mật khẩu mới"
+                />
+              </div>
+            </div>
+            <button class="save-btn" id="save-profile-btn">Lưu thay đổi</button>
+          </div>
+        </div>
+
+        <div id="addresses" class="tab-content">
+          <div id="address-container">
+            <!-- Địa chỉ sẽ được thêm vào từ JavaScript -->
+            <div class="address-card">
+              <div class="default-badge">Mặc định</div>
+              <h3>Nhà riêng</h3>
+              <p id="address-name">Chưa có thông tin</p>
+              <p id="address-detail">Chưa có địa chỉ</p>
+              <p id="address-city">Chưa có thành phố</p>
+              <p id="address-phone">Số điện thoại: Chưa có</p>
+              <div class="address-actions">
+                <button class="address-btn edit-btn" onclick="editAddress(0)">
+                  Chỉnh sửa
+                </button>
+                <button
+                  class="address-btn delete-btn"
+                  onclick="deleteAddress(0)"
+                >
+                  Xóa
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="add-address-btn"
+            id="add-address-btn"
+            onclick="showAddAddressModal()"
+          >
+            <span>+</span> Thêm địa chỉ mới
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal thêm địa chỉ mới -->
+    <div id="address-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAddressModal()">&times;</span>
+        <h2 class="modal-title" id="address-modal-title">Thêm địa chỉ mới</h2>
+
+        <div class="profile-form">
+          <input type="hidden" id="editing-address-index" value="-1" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-title">Tiêu đề</label>
+              <input
+                type="text"
+                id="address-title"
+                placeholder="Ví dụ: Nhà riêng, Văn phòng..."
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-fullname">Họ tên</label>
+              <input
+                type="text"
+                id="address-fullname"
+                placeholder="Họ tên người nhận"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-phone">Số điện thoại</label>
+              <input
+                type="tel"
+                id="address-phone-input"
+                placeholder="Số điện thoại liên hệ"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-detail">Địa chỉ cụ thể</label>
+              <input
+                type="text"
+                id="address-detail-input"
+                placeholder="Số nhà, đường, phường/xã..."
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-city">Thành phố</label>
+              <input
+                type="text"
+                id="address-city-input"
+                placeholder="Thành phố/Tỉnh"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-default">
+                <input
+                  type="checkbox"
+                  id="address-default"
+                  style="width: auto; margin-right: 8px"
+                />
+                Đặt làm địa chỉ mặc định
+              </label>
+            </div>
+          </div>
+          <button
+            class="save-btn"
+            id="save-address-btn"
+            onclick="saveAddress()"
+          >
+            Lưu địa chỉ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-message" id="success-message">
+      Thông tin đã được lưu thành công!
+    </div>
+    <script src="../js/CaNhan.js"></script>
+  </body>
+</html>

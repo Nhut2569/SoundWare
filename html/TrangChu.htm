@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave - Cửa hàng loa cao cấp</title>
+    <link rel="stylesheet" href="../css/TrangChu.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sound<span>Wave</span></div>
+          <nav>
+            <ul>
+              <li><a href="#TrangChu.htm">Trang chủ</a></li>
+              <li><a href="./SanPhamS.htm">Sản phẩm</a></li>
+              <li><a href="#about">Về chúng tôi</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+              <li>
+                <a href="./GioHang.htm" onclick="openModal('cart-modal')"
+                  >Giỏ hàng</a
+                >
+              </li>
+              <li>
+                <a href="./CaNhan.htm" onclick="openModal('profile-modal')"
+                  >Cá nhân</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Trải nghiệm âm thanh đỉnh cao</h1>
+        <p>
+          Khám phá bộ sưu tập loa cao cấp với chất lượng âm thanh vượt trội và
+          thiết kế hiện đại
+        </p>
+        <a href="#products" class="btn">Mua ngay</a>
+      </div>
+    </section>
+
+    <section id="products" class="featured-products">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sản phẩm nổi bật</h2>
+          <p>Những mẫu loa bán chạy nhất của chúng tôi</p>
+        </div>
+        <div class="products">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa Bluetooth XSound Pro.jpg"
+                alt="Loa Bluetooth XSound Pro"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Bluetooth XSound Pro</h3>
+              <p class="product-price">2.990.000₫</p>
+              <p class="product-description">
+                Loa bluetooth không dây với âm thanh 360 độ, chống nước IPX7,
+                pin 20 giờ.
+              </p>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Loa Bluetooth XSound Pro', 2990000)"
+              >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa SoundBar Max.jpg"
+                alt="Loa SoundBar Max"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa SoundBar Max</h3>
+              <p class="product-price">5.490.000₫</p>
+              <p class="product-description">
+                Soundbar cao cấp với công nghệ Dolby Atmos, kết nối không dây
+                với loa siêu trầm.
+              </p>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Loa SoundBar Max', 5490000)"
+              >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa Bookshelf AudioPro.jgp"
+                alt="Loa Bookshelf AudioPro"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Bookshelf AudioPro</h3>
+              <p class="product-price">7.990.000₫</p>
+              <p class="product-description">
+                Loa kệ với âm thanh hi-fi, thiết kế gỗ tự nhiên và công nghệ âm
+                thanh đa phòng.
+              </p>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Loa Bookshelf AudioPro', 7990000)"
+              >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa Party Bass BoomL.jpg"
+                alt="Loa Party Bass Boom"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Party Bass Boom</h3>
+              <p class="product-price">3.990.000₫</p>
+              <p class="product-description">
+                Loa di động công suất lớn với đèn LED, hiệu ứng DJ và mic
+                karaoke không dây.
+              </p>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Loa Party Bass Boom', 3990000)"
+              >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <div class="section-title">
+          <h2>Danh mục sản phẩm</h2>
+          <p>Khám phá các dòng sản phẩm đa dạng của chúng tôi</p>
+        </div>
+        <div class="category-cards">
+          <div
+            class="category-card"
+            style="background-image: url('/api/placeholder/250/150')"
+          >
+            <div class="category-name">Loa Bluetooth</div>
+          </div>
+          <div
+            class="category-card"
+            style="background-image: url('/api/placeholder/250/150')"
+          >
+            <div class="category-name">Loa Soundbar</div>
+          </div>
+          <div
+            class="category-card"
+            style="background-image: url('/api/placeholder/250/150')"
+          >
+            <div class="category-name">Loa Hi-Fi</div>
+          </div>
+          <div
+            class="category-card"
+            style="background-image: url('/api/placeholder/250/150')"
+          >
+            <div class="category-name">Loa Karaoke</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image">
+            <img src="../data/img/SounWare.png" alt="Về SoundWave" />
+          </div>
+          <div class="about-text">
+            <h2>Về SoundWave</h2>
+            <p>
+              SoundWave là nhà phân phối thiết bị âm thanh cao cấp hàng đầu Việt
+              Nam. Với hơn 10 năm kinh nghiệm, chúng tôi tự hào mang đến những
+              sản phẩm âm thanh chất lượng cao từ các thương hiệu nổi tiếng trên
+              thế giới.
+            </p>
+            <p>
+              Chúng tôi cam kết cung cấp những giải pháp âm thanh tốt nhất, phù
+              hợp với nhu cầu và không gian sống của bạn. Đội ngũ chuyên viên
+              của chúng tôi luôn sẵn sàng tư vấn để bạn có thể tìm được sản phẩm
+              hoàn hảo.
+            </p>
+            <a href="#contact" class="btn">Liên hệ với chúng tôi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Khách hàng nói gì về chúng tôi</h2>
+          <p>Những đánh giá từ khách hàng đã mua sản phẩm</p>
+        </div>
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Tôi đã mua loa Bluetooth XSound Pro và rất hài lòng với chất
+              lượng âm thanh. Pin cũng rất trâu, dùng cả ngày không hết."
+            </p>
+            <p class="testimonial-author">- Nguyễn Văn A</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Dịch vụ chăm sóc khách hàng tuyệt vời. Nhân viên rất nhiệt tình
+              tư vấn và giúp tôi chọn được bộ loa phù hợp với ngân sách."
+            </p>
+            <p class="testimonial-author">- Trần Thị B</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Loa SoundBar Max đã nâng tầm trải nghiệm xem phim của tôi. Âm
+              thanh vòm rõ ràng, bass mạnh mẽ và dễ dàng kết nối với TV."
+            </p>
+            <p class="testimonial-author">- Lê Văn C</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Liên hệ với chúng tôi</h2>
+          <p>Gửi thắc mắc hoặc đặt lịch tư vấn miễn phí</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+              </div>
+              <div class="form-group">
+                <label for="message">Tin nhắn</label>
+                <textarea id="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Gửi tin nhắn</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

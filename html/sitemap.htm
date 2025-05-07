@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitemap - WebSoundWare</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #0066cc;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 15px;
+      }
+      h2 {
+        color: #0099ff;
+        margin-top: 30px;
+        border-left: 4px solid #0099ff;
+        padding-left: 10px;
+      }
+      .sitemap-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .sitemap-section {
+        flex: 1;
+        min-width: 280px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .sitemap-section h3 {
+        color: #0066cc;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      a {
+        color: #0066cc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: #0099ff;
+        text-decoration: underline;
+      }
+      .priority-high {
+        font-weight: bold;
+      }
+      .priority-med {
+        font-weight: normal;
+      }
+      .priority-low {
+        font-weight: 300;
+        color: #666;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #777;
+        font-size: 14px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+      .note {
+        background-color: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 10px 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WebSoundWare - Sitemap</h1>
+
+    <div class="note">
+      <p>
+        <strong>Lưu ý:</strong> WebSoundWare có hai dạng trang chính - trang
+        Index (khi truy cập) và trang Chủ (sau khi đăng nhập).
+      </p>
+    </div>
+
+    <div class="sitemap-container">
+      <div class="sitemap-section">
+        <h3>Trang Truy Cập</h3>
+        <ul>
+          <li>
+            <a href="/index" class="priority-high">Trang Index</a> - Trang đầu
+            tiên khi truy cập
+          </li>
+          <li><a href="/login" class="priority-high">Đăng nhập</a></li>
+          <li><a href="/register" class="priority-high">Đăng ký</a></li>
+          <li>
+            <a href="/forgot-password" class="priority-med">Quên mật khẩu</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Trang Sau Đăng Nhập</h3>
+        <ul>
+          <li>
+            <a href="/home" class="priority-high">Trang Chủ</a> - Trang chính
+            sau khi đăng nhập
+          </li>
+          <li>
+            <a href="/dashboard" class="priority-high">Bảng điều khiển</a>
+          </li>
+          <li><a href="/profile" class="priority-med">Hồ sơ người dùng</a></li>
+          <li>
+            <a href="/settings" class="priority-med">Cài đặt tài khoản</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Sản Phẩm</h3>
+        <ul>
+          <li><a href="/products" class="priority-high">Tất cả sản phẩm</a></li>
+          <li>
+            <a href="/products/headphones" class="priority-med">Tai nghe</a>
+          </li>
+          <li><a href="/products/speakers" class="priority-med">Loa</a></li>
+          <li>
+            <a href="/products/microphones" class="priority-med">Microphone</a>
+          </li>
+          <li>
+            <a href="/products/accessories" class="priority-med">Phụ kiện</a>
+          </li>
+          <li>
+            <a href="/product/details" class="priority-med"
+              >Chi tiết sản phẩm</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Giỏ Hàng & Thanh Toán</h3>
+        <ul>
+          <li><a href="/cart" class="priority-high">Giỏ hàng</a></li>
+          <li><a href="/checkout" class="priority-high">Thanh toán</a></li>
+          <li><a href="/orders" class="priority-med">Đơn hàng của tôi</a></li>
+          <li>
+            <a href="/order/tracking" class="priority-med">Theo dõi đơn hàng</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Tính Năng Người Dùng</h3>
+        <ul>
+          <li>
+            <a href="/wishlist" class="priority-med">Danh sách yêu thích</a>
+          </li>
+          <li><a href="/compare" class="priority-med">So sánh sản phẩm</a></li>
+          <li><a href="/reviews" class="priority-med">Đánh giá của tôi</a></li>
+          <li><a href="/notifications" class="priority-low">Thông báo</a></li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Thông Tin Hỗ Trợ</h3>
+        <ul>
+          <li><a href="/about" class="priority-med">Về chúng tôi</a></li>
+          <li><a href="/contact" class="priority-med">Liên hệ</a></li>
+          <li><a href="/faq" class="priority-med">Câu hỏi thường gặp</a></li>
+          <li><a href="/support" class="priority-low">Trung tâm hỗ trợ</a></li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Chính Sách</h3>
+        <ul>
+          <li>
+            <a href="/privacy-policy" class="priority-low"
+              >Chính sách bảo mật</a
+            >
+          </li>
+          <li>
+            <a href="/terms-conditions" class="priority-low"
+              >Điều khoản & Điều kiện</a
+            >
+          </li>
+          <li>
+            <a href="/shipping-policy" class="priority-low"
+              >Chính sách vận chuyển</a
+            >
+          </li>
+          <li>
+            <a href="/return-policy" class="priority-low">Chính sách đổi trả</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h3>Admin (nếu có)</h3>
+        <ul>
+          <li>
+            <a href="/admin/login" class="priority-high">Đăng nhập Admin</a>
+          </li>
+          <li>
+            <a href="/admin/dashboard" class="priority-high"
+              >Bảng điều khiển Admin</a
+            >
+          </li>
+          <li>
+            <a href="/admin/products" class="priority-med">Quản lý sản phẩm</a>
+          </li>
+          <li>
+            <a href="/admin/orders" class="priority-med">Quản lý đơn hàng</a>
+          </li>
+          <li>
+            <a href="/admin/users" class="priority-med">Quản lý người dùng</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 WebSoundWare - Cập nhật lần cuối: 07/05/2025</p>
+      <p><a href="/sitemap.xml">Xem Sitemap XML</a></p>
+    </div>
+  </body>
+</html>

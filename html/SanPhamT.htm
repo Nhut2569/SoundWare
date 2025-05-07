@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave - Sản phẩm</title>
+    <link rel="stylesheet" href="/css/SanPhamT.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sound<span>Wave</span></div>
+          <nav>
+            <ul>
+              <li><a href="./TrangChu.htm">Trang chủ</a></li>
+              <li><a href="./SanPhamT.htm">Sản phẩm</a></li>
+              <li><a href="#about">Về chúng tôi</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+              <li><a id="login-link">Đăng nhập</a></li>
+              <li><a id="register-link">Đăng ký</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Sản Phẩm Của Chúng Tôi</h1>
+        <p>Khám phá bộ sưu tập loa cao cấp từ các thương hiệu hàng đầu</p>
+      </div>
+    </section>
+
+    <section class="products-container">
+      <div class="container">
+        <button class="mobile-filter-toggle">Hiển thị bộ lọc</button>
+
+        <div class="products-layout">
+          <div class="filters-sidebar">
+            <div class="filter-group">
+              <h3>Danh mục</h3>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" checked /> Loa Bluetooth </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Loa Soundbar </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Loa Hi-Fi </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Loa Karaoke </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Loa Bookshelf </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Loa Party </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>Giá tiền</h3>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Dưới 2.000.000₫ </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" checked /> 2.000.000₫ - 5.000.000₫
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" /> 5.000.000₫ - 10.000.000₫
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Trên 10.000.000₫ </label>
+              </div>
+              <div class="price-range">
+                <input
+                  type="text"
+                  class="price-input"
+                  placeholder="Giá thấp nhất"
+                />
+                <span>-</span>
+                <input
+                  type="text"
+                  class="price-input"
+                  placeholder="Giá cao nhất"
+                />
+              </div>
+              <button class="filter-btn">Áp dụng</button>
+            </div>
+
+            <div class="filter-group">
+              <h3>Thương hiệu</h3>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" checked /> SoundWave </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Sony </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> JBL </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Bose </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Harman Kardon </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Bang & Olufsen </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>Tính năng</h3>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Chống nước </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Kết nối Bluetooth </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Pin sạc </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Đèn LED </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Mic karaoke </label>
+              </div>
+              <div class="checkbox-group">
+                <label> <input type="checkbox" /> Kết nối Wi-Fi </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="products-content">
+            <div class="filter-bar">
+              <div class="filter-options">
+                <select class="filter-select">
+                  <option>Sắp xếp theo</option>
+                  <option>Giá: Thấp đến cao</option>
+                  <option>Giá: Cao đến thấp</option>
+                  <option>Bán chạy nhất</option>
+                  <option>Mới nhất</option>
+                </select>
+                <select class="filter-select">
+                  <option>Hiển thị 12</option>
+                  <option>Hiển thị 24</option>
+                  <option>Hiển thị 48</option>
+                </select>
+              </div>
+              <div class="search-box">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Tìm kiếm sản phẩm..."
+                />
+                <button class="search-btn">Tìm</button>
+              </div>
+            </div>
+
+            <div class="category-filters">
+              <h3 class="category-title">Lọc nhanh</h3>
+              <div class="category-options">
+                <button class="active">Tất cả</button>
+                <button>Bluetooth</button>
+                <button>Soundbar</button>
+                <button>Hi-Fi</button>
+                <button>Karaoke</button>
+                <button>Party</button>
+                <button>Bookshelf</button>
+              </div>
+            </div>
+
+            <div class="products-grid">
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      style="width: 100%"
+                      src="../data/img/Loa Bluetooth XSound Pro.jpg"
+                      alt="Loa Bluetooth XSound Pro"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Mới</span>
+                    <span class="product-tag">Bán chạy</span>
+                    <h3 class="product-name">Loa Bluetooth XSound Pro</h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="product-price">2.990.000₫</p>
+                    <p class="product-description">
+                      Loa bluetooth không dây với âm thanh 360 độ, chống nước
+                      IPX7, pin 20 giờ.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa SoundBar Max.jpg"
+                      alt="Loa SoundBar Max"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Dolby Atmos</span>
+                    <h3 class="product-name">Loa SoundBar Max</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="product-price">5.490.000₫</p>
+                    <p class="product-description">
+                      Soundbar cao cấp với công nghệ Dolby Atmos, kết nối không
+                      dây với loa siêu trầm.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Bookshelf AudioPro.jgp"
+                      alt="Loa Bookshelf AudioPro"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Hi-Fi</span>
+                    <h3 class="product-name">Loa Bookshelf AudioPro</h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="product-price">7.990.000₫</p>
+                    <p class="product-description">
+                      Loa kệ với âm thanh hi-fi, thiết kế gỗ tự nhiên và công
+                      nghệ âm thanh đa phòng.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Party Bass BoomL.jpg"
+                      alt="Loa Party Bass Boom"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Party</span>
+                    <span class="product-tag">Karaoke</span>
+                    <h3 class="product-name">Loa Party Bass Boom</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="product-price">3.990.000₫</p>
+                    <p class="product-description">
+                      Loa di động công suất lớn với đèn LED, hiệu ứng DJ và mic
+                      karaoke không dây.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa di động Mini Sound.jpg"
+                      alt="Loa di động Mini Sound"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Nhỏ gọn</span>
+                    <h3 class="product-name">Loa di động Mini Sound</h3>
+                    <div class="rating">★★★☆☆</div>
+                    <p class="product-price">1.290.000₫</p>
+                    <p class="product-description">
+                      Loa bluetooth siêu nhỏ gọn, dễ mang theo, chống nước IPX5,
+                      pin sử dụng liên tục 12 giờ.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Soundbar Cinema 800.jpg"
+                      alt="Loa Soundbar Cinema 800"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Home Cinema</span>
+                    <h3 class="product-name">Loa Soundbar Cinema 800</h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="product-price">9.990.000₫</p>
+                    <p class="product-description">
+                      Soundbar cao cấp 7.1.4 kênh, công nghệ Dolby Atmos, DTS:X,
+                      kết nối HDMI eARC và loa siêu trầm không dây.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Bluetooth WaterSound.jpg"
+                      alt="Loa Bluetooth WaterSound"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Chống nước IPX7</span>
+                    <h3 class="product-name">Loa Bluetooth WaterSound</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="product-price">1.790.000₫</p>
+                    <p class="product-description">
+                      Loa bluetooth chống nước hoàn toàn, có thể ngâm nước, âm
+                      thanh 360 độ và có thể nổi trên mặt nước.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Hi-Fi Tower 900.jpg"
+                      alt="Loa Hi-Fi Tower 900"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Floor Standing</span>
+                    <h3 class="product-name">Loa Hi-Fi Tower 900</h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="product-price">24.990.000₫</p>
+                    <p class="product-description">
+                      Loa đứng hi-fi cao cấp với tweeter bằng sợi carbon, driver
+                      lớn và khả năng tái tạo âm thanh chuyên nghiệp.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Karaoke KTV-100.jgp"
+                      alt="Loa Karaoke KTV-100"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Karaoke</span>
+                    <h3 class="product-name">Loa Karaoke KTV-100</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="product-price">4.290.000₫</p>
+                    <p class="product-description">
+                      Loa karaoke di động với 2 micro không dây, màn hình cảm
+                      ứng hiển thị lời và điều khiển từ xa qua ứng dụng.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Bluetooth Luxury2.jgp"
+                      alt="Loa Bluetooth Luxury"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Cao cấp</span>
+                    <h3 class="product-name">Loa Bluetooth Luxury</h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="product-price">12.990.000₫</p>
+                    <p class="product-description">
+                      Loa bluetooth cao cấp với vỏ bằng kim loại nguyên khối, da
+                      thật và công nghệ âm thanh multi-room.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa Studio Monitor.jgp"
+                      alt="Loa Studio Monitor"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Studio</span>
+                    <h3 class="product-name">Loa Studio Monitor</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="product-price">8.490.000₫</p>
+                    <p class="product-description">
+                      Loa monitor studio chuyên nghiệp với kết nối XLR, TRS, tái
+                      tạo âm thanh trung thực cho sản xuất âm nhạc.
+                    </p>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
+                </div>
+              </a>
+              <a href="" style="text-decoration: none">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img
+                      src="../data/img/Loa di động Mini Sound.jpg"
+                      alt="Loa Soundbar Mini"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <span class="product-tag">Nhỏ gọn</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave - Giỏ hàng</title>
+    <link rel="stylesheet" href="../css/GioHang.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sound<span>Wave</span></div>
+          <nav>
+            <ul>
+              <li><a href="TrangChu.htm">Trang chủ</a></li>
+              <li><a href="SanPhamS.htm">Sản phẩm</a></li>
+              <li><a href="TrangChu.htm#about">Về chúng tôi</a></li>
+              <li><a href="TrangChu.htm#contact">Liên hệ</a></li>
+              <li><a href="GioHang.htm" class="active">Giỏ hàng</a></li>
+              <li><a href="CaNhan.htm">Cá nhân</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Giỏ Hàng Của Bạn</h1>
+        <p>Quản lý các sản phẩm bạn đã chọn</p>
+      </div>
+    </section>
+
+    <section class="cart-container">
+      <div class="container">
+        <!-- Cart empty state - sẽ hiển thị khi không có sản phẩm trong giỏ hàng -->
+        <div class="cart-empty" id="empty-cart" style="display: none">
+          <h2>Giỏ hàng của bạn đang trống</h2>
+          <p>
+            Bạn chưa thêm sản phẩm nào vào giỏ hàng. Khám phá các sản phẩm của
+            chúng tôi và thêm vào giỏ hàng để mua sắm!
+          </p>
+          <a href="SanPhamS.htm" class="btn">Tiếp tục mua sắm</a>
+        </div>
+
+        <!-- Cart with items - sẽ hiển thị khi có sản phẩm trong giỏ hàng -->
+        <div class="cart-content" id="cart-with-items">
+          <div class="cart-items" id="cart-items-container">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+
+          <div class="cart-summary">
+            <div class="summary-card">
+              <h3 class="summary-title">Tóm tắt đơn hàng</h3>
+              <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="subtotal">0₫</span>
+              </div>
+              <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span id="shipping">0₫</span>
+              </div>
+              <div class="summary-row">
+                <span>Giảm giá</span>
+                <span id="discount">0₫</span>
+              </div>
+              <div class="summary-row total">
+                <span>Tổng cộng</span>
+                <span id="total">0₫</span>
+              </div>
+              <button class="checkout-btn">Thanh toán</button>
+            </div>
+
+            <div class="promo-code">
+              <div class="summary-card">
+                <h3 class="summary-title">Mã giảm giá</h3>
+                <div class="promo-input">
+                  <input type="text" placeholder="Nhập mã giảm giá" />
+                  <button>Áp dụng</button>
+                </div>
+              </div>
+            </div>
+
+            <a href="SanPhamS.htm" class="continue-shopping"
+              >← Tiếp tục mua sắm</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../js/GioHang.js"></script>
+  </body>
+</html>

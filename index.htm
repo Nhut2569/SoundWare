@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave - Cửa hàng loa cao cấp</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sound<span>Wave</span></div>
+          <nav>
+            <ul>
+              <li><a href="./index.htm">Trang chủ</a></li>
+              <li><a href="./html/SanPhamT.htm">Sản phẩm</a></li>
+              <li><a href="#about">Về chúng tôi</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+              <li>
+                <a href="#login-modal" onclick="showForm('login')">Đăng nhập</a>
+              </li>
+              <li>
+                <a href="#register-modal" onclick="showForm('register')"
+                  >Đăng kí</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Trải nghiệm âm thanh đỉnh cao</h1>
+        <p>
+          Khám phá bộ sưu tập loa cao cấp với chất lượng âm thanh vượt trội và
+          thiết kế hiện đại
+        </p>
+        <a href="#products" class="btn">Mua ngay</a>
+      </div>
+    </section>
+
+    <section id="products" class="featured-products">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sản phẩm nổi bật</h2>
+          <p>Những mẫu loa bán chạy nhất của chúng tôi</p>
+        </div>
+        <div class="products">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="./data/img/Loa Bluetooth XSound Pro.jpg"
+                alt="Loa Bluetooth XSound Pro"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Bluetooth XSound Pro</h3>
+              <p class="product-price">2.990.000₫</p>
+              <p class="product-description">
+                Loa bluetooth không dây với âm thanh 360 độ, chống nước IPX7,
+                pin 20 giờ.
+              </p>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa SoundBar Max.jpg"
+                alt="Loa SoundBar Max"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa SoundBar Max</h3>
+              <p class="product-price">5.490.000₫</p>
+              <p class="product-description">
+                Soundbar cao cấp với công nghệ Dolby Atmos, kết nối không dây
+                với loa siêu trầm.
+              </p>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa Bookshelf AudioPro.jgp"
+                alt="Loa Bookshelf AudioPro"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Bookshelf AudioPro</h3>
+              <p class="product-price">7.990.000₫</p>
+              <p class="product-description">
+                Loa kệ với âm thanh hi-fi, thiết kế gỗ tự nhiên và công nghệ âm
+                thanh đa phòng.
+              </p>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="../data/img/Loa Party Bass BoomL.jpg"
+                alt="Loa Party Bass Boom"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loa Party Bass Boom</h3>
+              <p class="product-price">3.990.000₫</p>
+              <p class="product-description">
+                Loa di động công suất lớn với đèn LED, hiệu ứng DJ và mic
+                karaoke không dây.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <div class="section-title">
+          <h2>Danh mục sản phẩm</h2>
+          <p>Khám phá các dòng sản phẩm đa dạng của chúng tôi</p>
+        </div>
+        <div class="category-cards">
+          <div
+            class="category-card"
+            style="
+              background-image: url('//data/img/Loa\ Bluetooth\ Luxury.jgp');
+            "
+          >
+            <div class="category-name">Loa Bluetooth</div>
+          </div>
+          <div
+            class="category-card"
+            style="
+              background-image: url('//data/img/Loa\ Soundbar\ Cinema\ 800.jpg');
+            "
+          >
+            <div class="category-name">Loa Soundbar</div>
+          </div>
+          <div
+            class="category-card"
+            style="
+              background-image: url('//data/img/Loa\ Hi-Fi\ Tower\ 900.jpg');
+            "
+          >
+            <div class="category-name">Loa Hi-Fi</div>
+          </div>
+          <div
+            class="category-card"
+            style="
+              background-image: url('//data/img/Loa\ Karaoke\ KTV-100.jgp');
+            "
+          >
+            <div class="category-name">Loa Karaoke</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image">
+            <img src="../data/img/SounWare.png" alt="Về SoundWave" />
+          </div>
+          <div class="about-text">
+            <h2>Về SoundWave</h2>
+            <p>
+              SoundWave là nhà phân phối thiết bị âm thanh cao cấp hàng đầu Việt
+              Nam. Với hơn 10 năm kinh nghiệm, chúng tôi tự hào mang đến những
+              sản phẩm âm thanh chất lượng cao từ các thương hiệu nổi tiếng trên
+              thế giới.
+            </p>
+            <p>
+              Chúng tôi cam kết cung cấp những giải pháp âm thanh tốt nhất, phù
+              hợp với nhu cầu và không gian sống của bạn. Đội ngũ chuyên viên
+              của chúng tôi luôn sẵn sàng tư vấn để bạn có thể tìm được sản phẩm
+              hoàn hảo.
+            </p>
+            <a href="#contact" class="btn">Liên hệ với chúng tôi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Khách hàng nói gì về chúng tôi</h2>
+          <p>Những đánh giá từ khách hàng đã mua sản phẩm</p>
+        </div>
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Tôi đã mua loa Bluetooth XSound Pro và rất hài lòng với chất
+              lượng âm thanh. Pin cũng rất trâu, dùng cả ngày không hết."
+            </p>
+            <p class="testimonial-author">- Nguyễn Văn A</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Dịch vụ chăm sóc khách hàng tuyệt vời. Nhân viên rất nhiệt tình
+              tư vấn và giúp tôi chọn được bộ loa phù hợp với ngân sách."
+            </p>
+            <p class="testimonial-author">- Trần Thị B</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Loa SoundBar Max đã nâng tầm trải nghiệm xem phim của tôi. Âm
+              thanh vòm rõ ràng, bass mạnh mẽ và dễ dàng kết nối với TV."
+            </p>
+            <p class="testimonial-author">- Lê Văn C</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Liên hệ với chúng tôi</h2>
+          <p>Gửi thắc mắc hoặc đặt lịch tư vấn miễn phí</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" />
+              </div>
+              <div class="form-group">
+                <label for="message">Tin nhắn</label>
+                <textarea id="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Gửi tin nhắn</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>Địa chỉ</h3>
+              <p>123 Đường Nguyễn Văn Linh, Quận 7, TP.HCM</p>
+            </div>
+            <div class="contact-item">
+              <h3>Điện thoại</h3>
+              <p>028 1234 5678</p>
+            </div>
+            <div class="contact-item">
+              <h3>Email</h3>
+              <p>info@soundwave.com</p>
+            </div>
+            <div class="contact-item">
+              <h3>Giờ làm việc</h3>
+              <p>
+                Thứ Hai - Thứ Bảy: 9:00 - 21:00<br />Chủ Nhật: 10:00 - 18:00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>SoundWave</h3>
+            <p>Đẳng cấp âm thanh - Đỉnh cao công nghệ</p>
+          </div>
+          <div class="footer-column">
+            <h3>Liên kết</h3>
+            <ul>
+              <li><a href="#home">Trang chủ</a></li>
+              <li><a href="#products">Sản phẩm</a></li>
+              <li><a href="#about">Về chúng tôi</a></li>
+              <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Hỗ trợ</h3>
+            <ul>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Kết nối với chúng tôi</h3>
+            <div class="social-links">
+              <a href="#">Facebook</a>
+              <a href="#">Instagram</a>
+              <a href="#">Youtube</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 SoundWave. Tất cả quyền được bảo lưu.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Modal Đăng nhập -->
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <button
+          class="close-btn"
+          onclick="closeModal(document.getElementById('login-modal'))"
+        >
+          &times;
+        </button>
+        <h2 class="modal-title">Đăng nhập</h2>
+        <div id="login-error" class="error-message"></div>
+        <form id="login-form">
+          <div class="input-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required />
+            <span class="error">Vui lòng nhập email hợp lệ</span>
+          </div>
+          <div class="input-group">
+            <label for="login-password">Mật khẩu</label>
+            <input type="password" id="login-password" required />
+            <span class="error">Mật khẩu phải có ít nhất 6 ký tự</span>
+          </div>
+          <button type="submit" class="form-btn">Đăng nhập</button>
+          <div class="modal-footer">
+            <p>
+              Chưa có tài khoản? <a id="switch-to-register">Đăng ký ngay</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Đăng ký -->
+    <div id="register-modal" class="modal">
+      <div class="modal-content">
+        <button
+          class="close-btn"
+          onclick="closeModal(document.getElementById('register-modal'))"
+        >
+          &times;
+        </button>
+        <h2 class="modal-title">Đăng ký tài khoản</h2>
+        <div id="register-error" class="error-message"></div>
+        <form id="register-form">
+          <div class="input-group">
+            <label for="register-name">Họ và tên</label>
+            <input type="text" id="register-name" required />
+            <span class="error">Vui lòng nhập họ tên đầy đủ</span>
+          </div>
+          <div class="input-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" required />
+            <span class="error">Vui lòng nhập email hợp lệ</span>
+          </div>
+          <div class="input-group">
+            <label for="register-phone">Số điện thoại</label>
+            <input type="tel" id="register-phone" required />
+            <span class="error"
+              >Vui lòng nhập số điện thoại hợp lệ (10 số)</span
+            >
+          </div>
+          <div class="input-group">
+            <label for="register-password">Mật khẩu</label>
+            <input type="password" id="register-password" required />
+            <span class="error">Mật khẩu phải có ít nhất 6 ký tự</span>
+          </div>
+          <div class="input-group">
+            <label for="register-confirm-password">Xác nhận mật khẩu</label>
+            <input type="password" id="register-confirm-password" required />
+            <span class="error">Mật khẩu xác nhận không khớp</span>
+          </div>
+          <button type="submit" class="form-btn">Đăng ký</button>
+          <div class="modal-footer">
+            <p>Đã có tài khoản? <a id="switch-to-login">Đăng nhập</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Thêm script -->
+    <script src="./js/auth-script.js"></script>
+  </body>
+</html>

@@ -56,11 +56,8 @@ function showForm(mode) {
   }
 }
 
-// Hàm chuyển hướng sau khi đăng nhập thành công
-function redirectToHomePage() {
-  // Chuyển người dùng đến trang TrangChu.html
-  window.location.href = "./html/TrangChu.htm";
-}
+// Hàm chuyển hướng đã bỏ, chức năng chuyển hướng sẽ thực hiện trực tiếp trong hàm đăng nhập
+// Không còn gọi hàm redirectToHomePage() ở nhiều nơi nữa
 
 // Hàm đăng nhập
 function loginUser(email, password) {
@@ -110,8 +107,10 @@ function loginUser(email, password) {
     alert("Đăng nhập thành công! Đang chuyển đến trang chủ...");
 
     // Chuyển hướng đến trang chủ sau khi thông báo
-    redirectToHomePage();
+    // Đặt mã chuyển hướng trực tiếp ở đây thay vì gọi hàm redirectToHomePage()
+    window.location.href = "./html/TrangChu.htm";
   } catch (error) {
+
     console.error("Lỗi đăng nhập:", error);
     showLoginError(error.message);
   }
@@ -352,18 +351,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (authToken && userData) {
     try {
       const user = JSON.parse(userData);
-
-      // Kiểm tra xem chúng ta có đang ở trang đăng nhập không
-      // Nếu đã đăng nhập và đang ở trang đăng nhập, chuyển hướng đến trang chủ
-      if (
-        window.location.pathname.includes("index.html") ||
-        window.location.pathname.endsWith("/")
-      ) {
-        redirectToHomePage();
-      } else {
-        // Nếu đang ở các trang khác, chỉ cập nhật UI
-        updateUIAfterLogin(user);
-      }
+      
+      // Chỉ cập nhật UI, không tự động chuyển hướng
+      updateUIAfterLogin(user);
+      
+      // Bỏ phần code tự động chuyển hướng này:
+      // if (
+      //   window.location.pathname.includes("index.html") ||
+      //   window.location.pathname.endsWith("/")
+      // ) {
+      //   redirectToHomePage();
+      // } else {
+      //   // Nếu đang ở các trang khác, chỉ cập nhật UI
+      //   updateUIAfterLogin(user);
+      // }
     } catch (e) {
       console.error("Lỗi đọc dữ liệu người dùng:", e);
       localStorage.removeItem("authToken");

@@ -1,6 +1,8 @@
+// Khai báo các biến cho mock API
 let users = [];
 let currentUser = null;
 
+// Load users từ localStorage ngay khi script được tải
 function loadUsersFromStorage() {
   const storedUsers = localStorage.getItem("users");
   if (storedUsers) {
@@ -19,15 +21,18 @@ function loadUsersFromStorage() {
 // Hàm hiển thị modal
 function showModal(modalId) {
   document.querySelectorAll(".modal").forEach((modal) => {
-    modal.style.display = "none";
+    modal.style.display = "none"; // Ẩn tất cả modal trước
   });
   const modal = document.getElementById(modalId);
   if (modal) {
-    modal.style.display = "flex";
+    modal.style.display = "flex"; // Hiện modal cần mở
+    // Reset form
     const form = modal.querySelector("form");
     if (form) form.reset();
+    // Ẩn thông báo lỗi
     const errorMessage = modal.querySelector(".error-message");
     if (errorMessage) errorMessage.style.display = "none";
+    // Ẩn tất cả thông báo lỗi nhỏ
     const errorElements = modal.querySelectorAll(".error");
     errorElements.forEach((err) => {
       err.style.display = "none";
@@ -51,13 +56,12 @@ function showForm(mode) {
   }
 }
 
-// Hàm chuyển hướng sau khi đăng nhập thành công
-function redirectToHomePage() {
-  window.location.href = "./html/TrangChu.htm";
-}
+// Hàm chuyển hướng đã bỏ, chức năng chuyển hướng sẽ thực hiện trực tiếp trong hàm đăng nhập
+// Không còn gọi hàm redirectToHomePage() ở nhiều nơi nữa
 
 // Hàm đăng nhập
 function loginUser(email, password) {
+  // Clean input data
   email = email.trim().toLowerCase();
 
   // Load users mới nhất từ localStorage
@@ -65,11 +69,14 @@ function loginUser(email, password) {
 
   try {
     console.log(`Đang cố đăng nhập với email: "${email}"`);
+
+    // Tìm user trong "database" với so sánh không phân biệt hoa thường cho email
     const user = users.find(
       (u) => u.email.toLowerCase() === email && u.password === password
     );
 
     if (!user) {
+      // Debug: In ra tất cả email trong hệ thống để so sánh
       console.log("Các email hiện có trong hệ thống:");
       users.forEach((u) => console.log(`- "${u.email}"`));
 
@@ -96,10 +103,14 @@ function loginUser(email, password) {
 
     console.log("Đăng nhập thành công với user:", userData);
 
+    // Hiển thị thông báo thành công và chuyển hướng
     alert("Đăng nhập thành công! Đang chuyển đến trang chủ...");
 
-    redirectToHomePage();
+    // Chuyển hướng đến trang chủ sau khi thông báo
+    // Đặt mã chuyển hướng trực tiếp ở đây thay vì gọi hàm redirectToHomePage()
+    window.location.href = "./html/TrangChu.htm";
   } catch (error) {
+
     console.error("Lỗi đăng nhập:", error);
     showLoginError(error.message);
   }
@@ -107,14 +118,16 @@ function loginUser(email, password) {
 
 // Hàm đăng ký
 function registerUser(name, email, phone, password) {
+  // Clean input data
   name = name.trim();
-  email = email.trim().toLowerCase();
+  email = email.trim().toLowerCase(); // Lưu email dạng lowercase để dễ so sánh
   phone = phone.trim();
 
   // Load users mới nhất từ localStorage
   loadUsersFromStorage();
 
   try {
+    // Kiểm tra email đã tồn tại chưa (không phân biệt hoa thường)
     const existingUser = users.find(
       (u) => u.email.toLowerCase() === email.toLowerCase()
     );
@@ -138,8 +151,10 @@ function registerUser(name, email, phone, password) {
     console.log("Đã đăng ký user mới:", newUser);
     console.log("Danh sách users sau khi đăng ký:", users);
 
+    // Đóng modal đăng ký
     closeModal(document.getElementById("register-modal"));
 
+    // Hiển thị thông báo thành công và tự động điền email vào form đăng nhập
     alert("Đăng ký thành công! Vui lòng đăng nhập.");
 
     // Chuyển đến form đăng nhập và điền sẵn email
@@ -156,9 +171,11 @@ function registerUser(name, email, phone, password) {
 
 // Hàm cập nhật giao diện sau khi đăng nhập thành công
 function updateUIAfterLogin(user) {
+  // Ẩn nút đăng nhập/đăng ký
   const authButtons = document.getElementById("auth-buttons");
   if (authButtons) authButtons.style.display = "none";
 
+  // Hiển thị thông tin người dùng
   const userInfoArea = document.getElementById("user-info-area");
   if (userInfoArea) {
     userInfoArea.style.display = "block";
@@ -334,18 +351,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (authToken && userData) {
     try {
       const user = JSON.parse(userData);
-
-      // Kiểm tra xem chúng ta có đang ở trang đăng nhập không
-      // Nếu đã đăng nhập và đang ở trang đăng nhập, chuyển hướng đến trang chủ
-      if (
-        window.location.pathname.includes("index.html") ||
-        window.location.pathname.endsWith("/")
-      ) {
-        redirectToHomePage();
-      } else {
-        // Nếu đang ở các trang khác, chỉ cập nhật UI
-        updateUIAfterLogin(user);
-      }
+      
+      // Chỉ cập nhật UI, không tự động chuyển hướng
+      updateUIAfterLogin(user);
+      
+      // Bỏ phần code tự động chuyển hướng này:
+      // if (
+      //   window.location.pathname.includes("index.html") ||
+      //   window.location.pathname.endsWith("/")
+      // ) {
+      //   redirectToHomePage();
+      // } else {
+      //   // Nếu đang ở các trang khác, chỉ cập nhật UI
+      //   updateUIAfterLogin(user);
+      // }
     } catch (e) {
       console.error("Lỗi đọc dữ liệu người dùng:", e);
       localStorage.removeItem("authToken");

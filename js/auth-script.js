@@ -1,8 +1,6 @@
-// Khai báo các biến cho mock API
 let users = [];
 let currentUser = null;
 
-// Load users từ localStorage ngay khi script được tải
 function loadUsersFromStorage() {
   const storedUsers = localStorage.getItem("users");
   if (storedUsers) {
@@ -21,21 +19,22 @@ function loadUsersFromStorage() {
 // Hàm hiển thị modal
 function showModal(modalId) {
   document.querySelectorAll(".modal").forEach((modal) => {
-    modal.style.display = "none"; // Ẩn tất cả modal trước
+    modal.style.display = "none";
   });
   const modal = document.getElementById(modalId);
   if (modal) {
-    modal.style.display = "flex"; // Hiện modal cần mở
-    // Reset form
+    modal.style.display = "flex";
     const form = modal.querySelector("form");
     if (form) form.reset();
-    // Ẩn thông báo lỗi
     const errorMessage = modal.querySelector(".error-message");
     if (errorMessage) errorMessage.style.display = "none";
-    // Ẩn tất cả thông báo lỗi nhỏ
     const errorElements = modal.querySelectorAll(".error");
     errorElements.forEach((err) => {
       err.style.display = "none";
+    });
+    // Reset validation status
+    modal.querySelectorAll("input").forEach((input) => {
+      input.classList.remove("valid-input", "invalid-input");
     });
   }
 }
@@ -56,12 +55,13 @@ function showForm(mode) {
   }
 }
 
-// Hàm chuyển hướng đã bỏ, chức năng chuyển hướng sẽ thực hiện trực tiếp trong hàm đăng nhập
-// Không còn gọi hàm redirectToHomePage() ở nhiều nơi nữa
+// Hàm chuyển hướng sau khi đăng nhập thành công
+function redirectToHomePage() {
+  window.location.href = "./html/TrangChu.htm";
+}
 
 // Hàm đăng nhập
 function loginUser(email, password) {
-  // Clean input data
   email = email.trim().toLowerCase();
 
   // Load users mới nhất từ localStorage
@@ -69,14 +69,11 @@ function loginUser(email, password) {
 
   try {
     console.log(`Đang cố đăng nhập với email: "${email}"`);
-
-    // Tìm user trong "database" với so sánh không phân biệt hoa thường cho email
     const user = users.find(
       (u) => u.email.toLowerCase() === email && u.password === password
     );
 
     if (!user) {
-      // Debug: In ra tất cả email trong hệ thống để so sánh
       console.log("Các email hiện có trong hệ thống:");
       users.forEach((u) => console.log(`- "${u.email}"`));
 
@@ -103,14 +100,10 @@ function loginUser(email, password) {
 
     console.log("Đăng nhập thành công với user:", userData);
 
-    // Hiển thị thông báo thành công và chuyển hướng
     alert("Đăng nhập thành công! Đang chuyển đến trang chủ...");
 
-    // Chuyển hướng đến trang chủ sau khi thông báo
-    // Đặt mã chuyển hướng trực tiếp ở đây thay vì gọi hàm redirectToHomePage()
-    window.location.href = "./html/TrangChu.htm";
+    redirectToHomePage();
   } catch (error) {
-
     console.error("Lỗi đăng nhập:", error);
     showLoginError(error.message);
   }
@@ -118,16 +111,14 @@ function loginUser(email, password) {
 
 // Hàm đăng ký
 function registerUser(name, email, phone, password) {
-  // Clean input data
   name = name.trim();
-  email = email.trim().toLowerCase(); // Lưu email dạng lowercase để dễ so sánh
+  email = email.trim().toLowerCase();
   phone = phone.trim();
 
   // Load users mới nhất từ localStorage
   loadUsersFromStorage();
 
   try {
-    // Kiểm tra email đã tồn tại chưa (không phân biệt hoa thường)
     const existingUser = users.find(
       (u) => u.email.toLowerCase() === email.toLowerCase()
     );
@@ -151,10 +142,8 @@ function registerUser(name, email, phone, password) {
     console.log("Đã đăng ký user mới:", newUser);
     console.log("Danh sách users sau khi đăng ký:", users);
 
-    // Đóng modal đăng ký
     closeModal(document.getElementById("register-modal"));
 
-    // Hiển thị thông báo thành công và tự động điền email vào form đăng nhập
     alert("Đăng ký thành công! Vui lòng đăng nhập.");
 
     // Chuyển đến form đăng nhập và điền sẵn email
@@ -171,11 +160,9 @@ function registerUser(name, email, phone, password) {
 
 // Hàm cập nhật giao diện sau khi đăng nhập thành công
 function updateUIAfterLogin(user) {
-  // Ẩn nút đăng nhập/đăng ký
   const authButtons = document.getElementById("auth-buttons");
   if (authButtons) authButtons.style.display = "none";
 
-  // Hiển thị thông tin người dùng
   const userInfoArea = document.getElementById("user-info-area");
   if (userInfoArea) {
     userInfoArea.style.display = "block";
@@ -230,27 +217,159 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-// Hàm validate số điện thoại (10 số)
+// Hàm validate số điện thoại (10 số, bắt đầu bằng số 0)
 function validatePhone(phone) {
   const re = /^0\d{9}$/;
   return re.test(phone);
 }
 
-// Hàm validate trường đầu vào và hiển thị lỗi
-function validateInput(inputId, isValid) {
-  const input = document.getElementById(inputId);
+// Hàm check mật khẩu mạnh
+function validateStrongPassword(password) {
+  // Ít nhất 6 ký tự, bao gồm chữ hoa, chữ thường và số
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+  return re.test(password);
+}
+
+// Hàm check email đã tồn tại
+function emailExists(email) {
+  loadUsersFromStorage();
+  return users.some((u) => u.email.toLowerCase() === email.toLowerCase());
+}
+
+// Hàm validate trường đầu vào và hiển thị lỗi ngay lập tức
+function validateInput(input, validationFunction, errorMessage) {
+  const value = input.value;
   const errorElement = input.nextElementSibling;
 
-  if (!isValid) {
+  if (!validationFunction(value)) {
+    input.classList.remove("valid-input");
+    input.classList.add("invalid-input");
+
     if (errorElement && errorElement.classList.contains("error")) {
+      errorElement.textContent = errorMessage || "Trường này không hợp lệ";
       errorElement.style.display = "block";
     }
     return false;
   } else {
+    input.classList.remove("invalid-input");
+    input.classList.add("valid-input");
+
     if (errorElement && errorElement.classList.contains("error")) {
       errorElement.style.display = "none";
     }
     return true;
+  }
+}
+
+// Hàm setup real-time validation cho form đăng ký
+function setupRegisterFormValidation() {
+  const nameInput = document.getElementById("register-name");
+  const emailInput = document.getElementById("register-email");
+  const phoneInput = document.getElementById("register-phone");
+  const passwordInput = document.getElementById("register-password");
+  const confirmPasswordInput = document.getElementById(
+    "register-confirm-password"
+  );
+
+  if (nameInput) {
+    nameInput.addEventListener("input", function () {
+      validateInput(
+        this,
+        (value) => value.trim().length >= 3,
+        "Tên phải có ít nhất 3 ký tự"
+      );
+    });
+  }
+
+  if (emailInput) {
+    emailInput.addEventListener("input", function () {
+      const isValidFormat = validateInput(
+        this,
+        validateEmail,
+        "Email không đúng định dạng"
+      );
+
+      if (isValidFormat && emailExists(this.value)) {
+        validateInput(this, () => false, "Email này đã được sử dụng");
+      }
+    });
+
+    // Check trùng lặp khi focus out
+    emailInput.addEventListener("blur", function () {
+      if (validateEmail(this.value) && emailExists(this.value)) {
+        validateInput(this, () => false, "Email này đã được sử dụng");
+      }
+    });
+  }
+
+  if (phoneInput) {
+    phoneInput.addEventListener("input", function () {
+      validateInput(
+        this,
+        validatePhone,
+        "Số điện thoại phải có 10 số và bắt đầu bằng số 0"
+      );
+    });
+  }
+
+  if (passwordInput) {
+    passwordInput.addEventListener("input", function () {
+      validateInput(
+        this,
+        (value) => value.length >= 6,
+        "Mật khẩu phải có ít nhất 6 ký tự"
+      );
+
+      // Validate mạnh nếu muốn (có thể comment lại nếu không cần)
+      /*
+      validateInput(
+        this, 
+        validateStrongPassword, 
+        "Mật khẩu phải có ít nhất 6 ký tự, gồm chữ hoa, chữ thường và số"
+      );
+      */
+
+      // Nếu confirm password đã có nội dung, check lại match
+      if (confirmPasswordInput && confirmPasswordInput.value) {
+        validateInput(
+          confirmPasswordInput,
+          (value) => value === passwordInput.value,
+          "Mật khẩu xác nhận không khớp"
+        );
+      }
+    });
+  }
+
+  if (confirmPasswordInput && passwordInput) {
+    confirmPasswordInput.addEventListener("input", function () {
+      validateInput(
+        this,
+        (value) => value === passwordInput.value,
+        "Mật khẩu xác nhận không khớp"
+      );
+    });
+  }
+}
+
+// Hàm setup real-time validation cho form đăng nhập
+function setupLoginFormValidation() {
+  const emailInput = document.getElementById("login-email");
+  const passwordInput = document.getElementById("login-password");
+
+  if (emailInput) {
+    emailInput.addEventListener("input", function () {
+      validateInput(this, validateEmail, "Email không đúng định dạng");
+    });
+  }
+
+  if (passwordInput) {
+    passwordInput.addEventListener("input", function () {
+      validateInput(
+        this,
+        (value) => value.length >= 6,
+        "Mật khẩu phải có ít nhất 6 ký tự"
+      );
+    });
   }
 }
 
@@ -344,6 +463,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Thêm nút debug
   addDebugButtons();
 
+  // Thêm style cho validation
+  addValidationStyles();
+
   // Kiểm tra xem người dùng đã đăng nhập chưa
   const authToken = localStorage.getItem("authToken");
   const userData = localStorage.getItem("userData");
@@ -351,20 +473,18 @@ document.addEventListener("DOMContentLoaded", function () {
   if (authToken && userData) {
     try {
       const user = JSON.parse(userData);
-      
-      // Chỉ cập nhật UI, không tự động chuyển hướng
-      updateUIAfterLogin(user);
-      
-      // Bỏ phần code tự động chuyển hướng này:
-      // if (
-      //   window.location.pathname.includes("index.html") ||
-      //   window.location.pathname.endsWith("/")
-      // ) {
-      //   redirectToHomePage();
-      // } else {
-      //   // Nếu đang ở các trang khác, chỉ cập nhật UI
-      //   updateUIAfterLogin(user);
-      // }
+
+      // Kiểm tra xem chúng ta có đang ở trang đăng nhập không
+      // Nếu đã đăng nhập và đang ở trang đăng nhập, chuyển hướng đến trang chủ
+      if (
+        window.location.pathname.includes("index.html") ||
+        window.location.pathname.endsWith("/")
+      ) {
+        redirectToHomePage();
+      } else {
+        // Nếu đang ở các trang khác, chỉ cập nhật UI
+        updateUIAfterLogin(user);
+      }
     } catch (e) {
       console.error("Lỗi đọc dữ liệu người dùng:", e);
       localStorage.removeItem("authToken");
@@ -397,6 +517,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Thiết lập real-time validation cho các form
+  setupRegisterFormValidation();
+  setupLoginFormValidation();
+
   // Xử lý form đăng nhập
   const loginForm = document.getElementById("login-form");
   if (loginForm) {
@@ -409,11 +533,20 @@ document.addEventListener("DOMContentLoaded", function () {
       let isValid = true;
 
       // Validate email
-      isValid = validateInput("login-email", validateEmail(email)) && isValid;
+      isValid =
+        validateInput(
+          document.getElementById("login-email"),
+          validateEmail,
+          "Email không đúng định dạng"
+        ) && isValid;
 
       // Validate password
       isValid =
-        validateInput("login-password", password.length >= 6) && isValid;
+        validateInput(
+          document.getElementById("login-password"),
+          (value) => value.length >= 6,
+          "Mật khẩu phải có ít nhất 6 ký tự"
+        ) && isValid;
 
       if (isValid) {
         loginUser(email, password);
@@ -439,25 +572,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Validate name
       isValid =
-        validateInput("register-name", name.trim().length >= 3) && isValid;
+        validateInput(
+          document.getElementById("register-name"),
+          (value) => value.trim().length >= 3,
+          "Tên phải có ít nhất 3 ký tự"
+        ) && isValid;
 
       // Validate email
+      const emailInput = document.getElementById("register-email");
       isValid =
-        validateInput("register-email", validateEmail(email)) && isValid;
+        validateInput(
+          emailInput,
+          validateEmail,
+          "Email không đúng định dạng"
+        ) && isValid;
+
+      // Kiểm tra email đã tồn tại
+      if (isValid && emailExists(email)) {
+        isValid =
+          validateInput(emailInput, () => false, "Email này đã được sử dụng") &&
+          isValid;
+      }
 
       // Validate phone
       isValid =
-        validateInput("register-phone", validatePhone(phone)) && isValid;
+        validateInput(
+          document.getElementById("register-phone"),
+          validatePhone,
+          "Số điện thoại phải có 10 số và bắt đầu bằng số 0"
+        ) && isValid;
 
       // Validate password
       isValid =
-        validateInput("register-password", password.length >= 6) && isValid;
+        validateInput(
+          document.getElementById("register-password"),
+          (value) => value.length >= 6,
+          "Mật khẩu phải có ít nhất 6 ký tự"
+        ) && isValid;
 
       // Validate confirm password
       isValid =
         validateInput(
-          "register-confirm-password",
-          password === confirmPassword
+          document.getElementById("register-confirm-password"),
+          (value) => value === password,
+          "Mật khẩu xác nhận không khớp"
         ) && isValid;
 
       if (isValid) {
@@ -482,3 +640,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Thêm CSS cho validation
+function addValidationStyles() {
+  const styleElement = document.createElement("style");
+  styleElement.textContent = `
+    .valid-input {
+      border: 2px solid #4CAF50 !important;
+      background-color: rgba(76, 175, 80, 0.05) !important;
+    }
+    
+    .invalid-input {
+      border: 2px solid #F44336 !important;
+      background-color: rgba(244, 67, 54, 0.05) !important;
+    }
+    
+    .error {
+      color: #F44336;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    
+    input {
+      transition: border 0.3s, background-color 0.3s;
+    }
+  `;
+  document.head.appendChild(styleElement);
+}
